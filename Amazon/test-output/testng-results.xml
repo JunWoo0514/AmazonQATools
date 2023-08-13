@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="43" passed="43" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-08-13T18:28:40 MYT" name="Default suite" finished-at="2023-08-13T18:39:26 MYT" duration-ms="646404">
+    <groups>
+    </groups>
+    <test started-at="2023-08-13T18:28:40 MYT" name="Default test" finished-at="2023-08-13T18:39:26 MYT" duration-ms="646404">
+      <class name="Amazon.test.SlotGameListTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:28:40 MYT" name="setUp" finished-at="2023-08-13T18:28:57 MYT" duration-ms="17329" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="SectionSetUpTestProduct(org.testng.ITestContext)[pri:1, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:28:57 MYT" name="SectionSetUpTestProduct" finished-at="2023-08-13T18:28:58 MYT" duration-ms="547" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SectionSetUpTestProduct -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:28:58 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:29:23 MYT" duration-ms="24824" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[PP Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:29:23 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:29:42 MYT" duration-ms="19481" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Haba]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:29:42 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:30:04 MYT" duration-ms="22192" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Elysium]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:30:04 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:30:28 MYT" duration-ms="23753" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Quickspin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:30:28 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:30:50 MYT" duration-ms="21766" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Spade Gaming]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:30:50 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:31:17 MYT" duration-ms="26853" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Play and Go]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:31:17 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:31:40 MYT" duration-ms="22828" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[World Match]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:31:40 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:32:05 MYT" duration-ms="25721" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Micro Gaming Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:32:05 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:32:30 MYT" duration-ms="24689" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo RedTiger]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:32:30 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:32:53 MYT" duration-ms="22588" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo Netent]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:32:53 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:33:20 MYT" duration-ms="26870" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Yggdrasil]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:33:20 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:33:43 MYT" duration-ms="22990" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Booongo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:33:43 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:34:10 MYT" duration-ms="27154" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Playson]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:34:10 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:34:33 MYT" duration-ms="23124" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Playtech Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:34:33 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:34:57 MYT" duration-ms="23758" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CQ9 Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:34:57 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:35:26 MYT" duration-ms="29260" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Wazdan]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:35:26 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:35:51 MYT" duration-ms="25423" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Pgsoft]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:35:51 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:36:22 MYT" duration-ms="30643" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Royal Slot Gaming]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:36:22 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:36:50 MYT" duration-ms="27686" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo BigTime]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:36:50 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:37:21 MYT" duration-ms="31227" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo NoLimit]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListSingleUpdate(java.lang.String,org.testng.ITestContext)[pri:2, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:37:21 MYT" name="SlotGameListSingleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:37:48 MYT" duration-ms="27550" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CC88]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListSingleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:37:48 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:37:52 MYT" duration-ms="3787" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[PP Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:37:52 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:37:56 MYT" duration-ms="4123" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Haba]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:37:56 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:00 MYT" duration-ms="4196" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Elysium]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:00 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:09 MYT" duration-ms="9025" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Quickspin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:09 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:14 MYT" duration-ms="4235" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Spade Gaming]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:14 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:18 MYT" duration-ms="4182" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Play and Go]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:18 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:22 MYT" duration-ms="4082" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[World Match]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:22 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:26 MYT" duration-ms="3994" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Micro Gaming Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:26 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:30 MYT" duration-ms="4114" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo RedTiger]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:30 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:34 MYT" duration-ms="3985" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo Netent]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:34 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:38 MYT" duration-ms="4206" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Yggdrasil]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:38 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:42 MYT" duration-ms="4159" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Booongo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:42 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:47 MYT" duration-ms="4297" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Playson]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:47 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:51 MYT" duration-ms="4325" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Playtech Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:51 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:38:55 MYT" duration-ms="4200" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CQ9 Slot]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:38:55 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:00 MYT" duration-ms="4380" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Wazdan]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:00 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:09 MYT" duration-ms="8938" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Pgsoft]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:09 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:13 MYT" duration-ms="4468" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Royal Slot Gaming]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:13 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:17 MYT" duration-ms="4312" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo BigTime]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:17 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:22 MYT" duration-ms="4386" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Evo NoLimit]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method signature="SlotGameListMultipleUpdate(java.lang.String,org.testng.ITestContext)[pri:3, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:22 MYT" name="SlotGameListMultipleUpdate" data-provider="RealTimeProductData" finished-at="2023-08-13T18:39:26 MYT" duration-ms="4459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CC88]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@ce9b9a9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SlotGameListMultipleUpdate -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Amazon.test.SlotGameListTest@6cf0e0ba]" started-at="2023-08-13T18:39:26 MYT" name="tearDown" finished-at="2023-08-13T18:39:26 MYT" duration-ms="260" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Amazon.test.SlotGameListTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
