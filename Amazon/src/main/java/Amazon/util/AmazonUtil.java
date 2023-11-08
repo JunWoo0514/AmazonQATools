@@ -25,6 +25,8 @@ public class AmazonUtil {
 	
 	public static Duration ELEMENT_WAIT = Duration.ofSeconds(15);
 	
+	public static Duration IMPLICIT_WAIT_SHT = Duration.ofSeconds(1);
+	
 	public static Duration ELEMENT_WAIT_MID = Duration.ofSeconds(30);
 	
 	public static Duration ELEMENT_WAIT_LONG = Duration.ofSeconds(200);

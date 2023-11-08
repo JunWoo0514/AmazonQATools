@@ -23,6 +23,12 @@ public class AgentProductPage extends TestBase{
 	@FindBy(id="category") 
 	WebElement filterCategory;
 	
+	@FindBy(id="//button[@id='left-btn']") 
+	WebElement tableLeftButton;
+	
+	@FindBy(xpath="//button[@id='right-btn']") 
+	WebElement tableRightButton;
+	
 	@FindBy(xpath="//button[normalize-space()='Submit']") 
 	WebElement filterBtn;
 	
@@ -45,6 +51,10 @@ public class AgentProductPage extends TestBase{
 	By submitBy = By.cssSelector("#btnSubmit");
 	
 	By filterBy = By.xpath("//button[normalize-space()='Submit']");
+
+	String sideButtonXpath = "//button[@id='right-btn']";
+	
+	String sideButtonXpathL = "//button[@id='left-btn']";
 	
 	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
 	
@@ -60,6 +70,7 @@ public class AgentProductPage extends TestBase{
 		writeText(filterName, agCode);
 		//selectItem(filterTier,tier);
 		selectItem(filterCategory,category);
+		waitVisibilityLocate(submitBy);
 		click(filterBtn);
 		waitVisibilityLocate(submitBy);
 	}
@@ -67,7 +78,10 @@ public class AgentProductPage extends TestBase{
 	public void ProductSettingSingleTest(String prdName, String prdStatus, String category) throws InterruptedException {
 		waitVisibilityLocate(submitBy);
 		checkCategory(category);
+		waitVisibilityLocate(submitBy);
+		products = driver.findElements(By.cssSelector("th"));
 		this.updateSingleProductSetting(prdName, prdStatus);
+		waitVisibilityLocate(submitBy);
 		click(submitBtn);	
 		CustomWaitClick(ModalConfirmBtn, ModalBtnCSS);
 	}
@@ -85,6 +99,8 @@ public class AgentProductPage extends TestBase{
 				if(CATest) {
 					j ++;
 				}
+					String name = checkProductDisplay(i);
+					System.out.println("Group Product: " + name);
 					WebElement productSelect = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
 					thisFieldStatus = elementDisplayCheck(productSelect);
 					if(thisFieldStatus == true) {
@@ -105,47 +121,141 @@ public class AgentProductPage extends TestBase{
 		}while(liveCount <= catcount);
 	}
 	
-	public void updateSingleProductSetting(String prdName, String prdStatus) {
+	/*public void updateSingleProductSetting2(String prdName, String prdStatus) throws InterruptedException {
 		boolean productStat = false;
 		if(prdStatus == prop.getProperty("active")) {
 			productStat = true;
 		}else if(prdStatus == prop.getProperty("disable")) {
 			productStat = false;
 		}
-		
+		products = driver.findElements(By.cssSelector("th"));
+		System.out.println("List size set up : " + products.size());
+		System.out.println("List size set up : " + products.get(14).getText());
 		for(int i=0; i < products.size() ; i ++) {
 			String name = products.get(i).getText();
+			System.out.println("Product Name : " + name);
+			System.out.println("Product Given Name : " + prdName);
 			if(name.contains(prdName)) {
 				int j = i + 1;
-				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
-				selectToggle(ProductToggle, productStat);
+				boolean thisFieldStatus = false;
+				do {
+					WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+					thisFieldStatus = elementDisplayCheck(ProductToggle);
+					System.out.println("List field status : " + thisFieldStatus);
+					if(thisFieldStatus == true) {
+						boolean sideButtonStatus = false;
+						sideButtonStatus = checkElementExist(sideButtonXpath);
+						if(sideButtonStatus == true) {
+							OnclickRelease(tableRightButton);
+						}
+						selectToggle(ProductToggle, productStat);
+					}else if(thisFieldStatus == false) {
+						//click(tableRightButton);
+						OnclickHold(tableRightButton);
+					}
+				}while(thisFieldStatus == false);
 				break;
 			}
 		}
+	}*/
+	
+	public void updateSingleProductSetting(String prdName, String prdStatus) throws InterruptedException {
+		boolean productStat = false;
+		if(prdStatus == prop.getProperty("active")) {
+			productStat = true;
+		}else if(prdStatus == prop.getProperty("disable")) {
+			productStat = false;
+		}
+		products = driver.findElements(By.cssSelector("th"));
+		System.out.println("List size set up : " + products.size());
+		//System.out.println("List size set up : " + products.get(15).getText());		
+		for(int i=0; i < products.size() ; i ++) {
+			//String name = products.get(i).getText();
+			String name = checkProductDisplay(i);
+			System.out.println("Product Name : " + name);
+			System.out.println("Product Given Name : " + prdName);	
+			/*boolean productShow = true;
+			if(i>1) {
+				do {
+					boolean thisFieldStatus = false;
+					name = products.get(i).getText();
+					int j = i + 1;
+					WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+					thisFieldStatus = elementDisplayCheck(ProductToggle);
+					if (name.length()==0 || thisFieldStatus == false) {
+						productShow = false;
+						OnclickHold(tableRightButton);
+						OnclickRelease(tableRightButton);
+					} else if(name.length()>=1 && thisFieldStatus == true) {
+						productShow = true;
+					}
+				}while(productShow == false);
+				
+			}*/
+			
+			if(name.contains(prdName)) {
+				int j = i + 1;
+				buttonRelease();
+				/*boolean sideButtonStatus = false;
+				sideButtonStatus = checkElementExist(sideButtonXpath);
+				if(sideButtonStatus == true) {
+					OnclickRelease(tableRightButton);
+				}*/
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				selectToggle(ProductToggle, productStat);
+				break;
+			}  
+		}
 	}
 	
-	
-	public void checkCategory(String category) {
+	public void checkCategory(String category) throws InterruptedException {
 		//Check category and refresh Table Header for latest product list
 		String currentCat = selectItemFirstItem(filterCategory);
+		
 		if(!currentCat.equals(category)) {
 			selectItem(filterCategory,category);
 			click(filterBtn);
-			waitVisibilityLocate(submitBy);
+			buttonRelease();
 		}
-		products = driver.findElements(By.cssSelector("th"));
+		
 	}
 	
-	public String getProductStatus(String prdName, String category) {
+	public String checkProductDisplay(int i) throws InterruptedException {
+		boolean productShow = true;
+		String name = products.get(i).getText();
+		if(i>1) {
+			do {
+				boolean thisFieldStatus = false;
+				name = products.get(i).getText();
+				int j = i + 1;
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				thisFieldStatus = elementDisplayCheck(ProductToggle);
+				if (name.length()==0 || thisFieldStatus == false) {
+					productShow = false;
+					OnclickHold(tableRightButton);
+					OnclickRelease(tableRightButton);
+				} else if(name.length()>=1 && thisFieldStatus == true) {
+					productShow = true;
+				}
+				
+			}while(productShow == false);
+		}
+		return name;
+	}
+	
+	public String getProductStatus(String prdName, String category) throws InterruptedException {
 		waitVisibilityLocate(submitBy);
 		String productStatus = "";
 		String newCategory = category;
 		String currentCat = selectItemFirstItem(filterCategory);
 		checkCategory(category);
-		
+		products = driver.findElements(By.cssSelector("th"));
 		for(int i=0; i < products.size() ; i ++) {
 			waitVisibilityLocate(submitBy);
-			String name = products.get(i).getText();
+			//String name = products.get(i).getText();
+			String name = checkProductDisplay(i);
+			System.out.println("Get Name : " + name);
+				
 			if(name.contains(prdName)) {
 				int j = i + 1;
 				WebElement productStatuInput = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
@@ -156,11 +266,12 @@ public class AgentProductPage extends TestBase{
 		return productStatus;
 	}
 	
-	public List<List<String>> getALLProductList(Boolean CATest) {
+	public List<List<String>> getALLProductList(Boolean CATest) throws InterruptedException {
 
 		waitVisibilityLocate(submitBy);
 		products = driver.findElements(By.cssSelector("th"));
 		System.out.println("List size set up : " + products.size());
+		System.out.println("List size set up : " + products.get(16).getText());
 		String currentCat = selectItemFirstItem(filterCategory);
 		System.out.println("Current Category : " + currentCat);
 		int catcount = selectOptionIndex(filterCategory)-1;
@@ -187,6 +298,7 @@ public class AgentProductPage extends TestBase{
 					thisFieldStatus = elementDisplayCheck(statusOrigin);
 					System.out.println("List field status : " + thisFieldStatus);
 					if (thisFieldStatus == true) {
+						buttonRelease();
 						String innitialStatus = readToggle(statusOrigin);
 						System.out.println("AG Code: " + products.get(1).getText());
 						System.out.println("List i value : " + t);
@@ -195,11 +307,13 @@ public class AgentProductPage extends TestBase{
 						currentCat = selectItemFirstItem(filterCategory);
 						System.out.println("List Category : " + currentCat);
 						elementDataList.add(Arrays.asList(ProductName, innitialStatus, currentCat));
+					}else {
+						OnclickHold(tableRightButton);
 					}
 				}while(thisFieldStatus == false);
-				
 			}
 			liveCount ++;
+			
 			if(liveCount <= catcount) {
 				selectItemIndex(filterCategory,liveCount);
 				click(filterBtn);
@@ -209,6 +323,14 @@ public class AgentProductPage extends TestBase{
 			
 		}while(liveCount <= catcount);
 		return elementDataList;	
+	}
+	
+	public void buttonRelease() throws InterruptedException {
+		boolean sideButtonStatus = false;
+		sideButtonStatus = checkElementExist(sideButtonXpath);
+		if(sideButtonStatus == true) {
+			OnclickRelease(tableRightButton);
+		}
 	}
 
 }

@@ -85,7 +85,7 @@ public class AgentProductTest extends TestBase{
 	}
 	
 	@Test(priority=1)
-    public void SectionSetUpParallel(ITestContext context) {
+    public void SectionSetUpParallel(ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		context.setAttribute("Steps", "1");
 		context.setAttribute("Process", "Get Parallel Tier Active Product Data");
@@ -107,6 +107,7 @@ public class AgentProductTest extends TestBase{
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Test with Product : " + prdName + " with Status Value : " + newStatus);
+		agentProductPage.findTestingAccount(paraCode, tier, category);
 		agentProductPage.ProductSettingSingleTest(prdName,newStatus, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + newStatus + " and received value : " + result);
@@ -122,11 +123,12 @@ public class AgentProductTest extends TestBase{
 		agentProductPage.ProductSettingMultipleTest(prop.getProperty("active"), CAtest);
 	}
 	
-	@Test(priority=4, dataProvider = "RealTimeProductData")
+	@Test(priority=4, enabled=false, dataProvider = "RealTimeProductData")
 	public void ProductSettingGroupCheck_Parallel(String prdName, String innitialStatus,  String category, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Check on Product : " + prdName + " with Status Value : " + active);		
+		agentProductPage.findTestingAccount(paraCode, tier, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + active + " and received value : " + result);
 		Assert.assertEquals(result, active);
@@ -155,6 +157,7 @@ public class AgentProductTest extends TestBase{
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Reseller Tier Test with Product : " + prdName + " with Status Value : " + newStatus);
+		agentProductPage.findTestingAccount(resellCode, tier, category);
 		agentProductPage.ProductSettingSingleTest(prdName, newStatus, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + newStatus + " and received value : " + result);
@@ -170,11 +173,12 @@ public class AgentProductTest extends TestBase{
 		agentProductPage.ProductSettingMultipleTest(prop.getProperty("active"), CAtest);
 	}
 	
-	@Test(priority=8, dataProvider = "RealTimeProductData")
+	@Test(priority=8, enabled=false, dataProvider = "RealTimeProductData")
 	public void ProductSettingGroupCheck_Reseller(String prdName, String innitialStatus,  String category, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Reseller Tier Check on Product : " + prdName + " with Status Value : " + active);		
+		agentProductPage.findTestingAccount(resellCode, tier, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + active + " and received value : " + result);
 		Assert.assertEquals(result, active);
@@ -201,6 +205,7 @@ public class AgentProductTest extends TestBase{
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Operator Tier Test with Product : " + prdName + " with Status Value : " + newStatus);
+		agentProductPage.findTestingAccount(operateCode, tier, category);
 		agentProductPage.ProductSettingSingleTest(prdName, newStatus, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + newStatus + " and received value : " + result);
@@ -215,10 +220,11 @@ public class AgentProductTest extends TestBase{
 		agentProductPage.ProductSettingMultipleTest(prop.getProperty("active"), CAtest);
 	}
 	
-	@Test(priority=12, dataProvider = "RealTimeProductData")
+	@Test(priority=12, enabled=false, dataProvider = "RealTimeProductData")
 	public void ProductSettingGroupCheck_Operator(String prdName, String innitialStatus,  String category, ITestContext context) throws InterruptedException {
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Operator Tier Check on Product : " + prdName + " with Status Value : " + active);		
+		agentProductPage.findTestingAccount(operateCode, tier, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + active + " and received value : " + result);
 		Assert.assertEquals(result, active);

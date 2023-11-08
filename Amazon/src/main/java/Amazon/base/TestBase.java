@@ -7,12 +7,14 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -30,7 +32,7 @@ public class TestBase {
 	//public static DriverManager driverManager;
 	public static WebDriver driver;
 	public static Properties prop;
-	public static WebDriverWait wait, waitE;
+	public static WebDriverWait wait, customWait;
 	Wait<WebDriver> fwait;
 	
 	//Gets data from properties file
@@ -74,6 +76,7 @@ public class TestBase {
 
 		//actions = ActionChains(driver);
 		wait = (WebDriverWait) new WebDriverWait(driver, AmazonUtil.ELEMENT_WAIT_MID);
+		//customWait = (WebDriverWait) new WebDriverWait(driver, AmazonUtil.ELEMENT_WAIT_SHT);
 		//waitE = (WebDriverWait) new FluentWait<WebDriver>(driver)
 			    //.withTimeout(Duration.ofSeconds(1))
 			    //.pollingEvery(Duration.ofMillis(500));
@@ -195,6 +198,25 @@ public class TestBase {
     	element.sendKeys(Keys.DOWN);
     }
     
+    public void OnclickHold(WebElement element) throws InterruptedException {
+    	Actions actions = new Actions(driver); 
+
+    	waitVisibility(element);
+	    actions.moveToElement(element); // Call clickAndHold() method to perform click and hold operation. 
+	    actions.clickAndHold(element).build().perform(); 
+	    Thread.sleep(1000);
+	    actions.moveToElement(element).release();
+    }
+    
+    public void OnclickRelease(WebElement element) throws InterruptedException {
+    	Actions actions = new Actions(driver); 
+    	waitVisibility(element);
+	    actions.moveToElement(element); // Call clickAndHold() method to perform click and hold operation. 
+	    actions.release(element).build().perform(); 
+    }
+    
+    
+    
   //Clear Text
     public void clearText(WebElement element) {
     	waitVisibility(element);
@@ -251,6 +273,24 @@ public class TestBase {
         {
     		element.click();
         }
+    }
+    
+    public boolean checkElementExist(String element) {
+    	boolean result = false;
+        try {
+        	//customWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element)));
+        	//WebElement elementOrigin = driver.findElement(By.xpath(element));
+        	//result = this.elementDisplayCheck(elementOrigin);
+        	
+        	driver.manage().timeouts().implicitlyWait(AmazonUtil.IMPLICIT_WAIT_SHT);
+        	WebElement elementOrigin = driver.findElement(By.xpath(element));
+        	result = this.elementDisplayCheck(elementOrigin);
+            driver.manage().timeouts().implicitlyWait(AmazonUtil.IMPLICIT_WAIT);
+        } catch (NoSuchElementException e) {
+        	result = false;
+        	driver.manage().timeouts().implicitlyWait(AmazonUtil.IMPLICIT_WAIT);
+        }
+		return result;
     }
     
     //Select Item From Dropdown List
