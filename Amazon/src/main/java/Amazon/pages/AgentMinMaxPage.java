@@ -35,6 +35,12 @@ public class AgentMinMaxPage extends TestBase{
 	@FindBy(id="btnCancel") 
 	WebElement CancelBtn;
 	
+	@FindBy(id="//button[@id='left-btn']") 
+	WebElement tableLeftButton;
+	
+	@FindBy(xpath="//button[@id='right-btn']") 
+	WebElement tableRightButton;
+	
 	//Table Header Element to get all products
 	@FindBy(css="th") 
 	List<WebElement> products;
@@ -51,6 +57,10 @@ public class AgentMinMaxPage extends TestBase{
 	
 	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
 	WebElement ModalConfirmBtn;
+	
+	String sideButtonXpath = "//button[@id='right-btn']";
+	
+	String sideButtonXpathL = "//button[@id='left-btn']";
 	
 	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
 	
@@ -143,14 +153,15 @@ public class AgentMinMaxPage extends TestBase{
 		}while(liveCount <= catcount);
 	}
 	
-	public String[] getLimitStatus(String prdName, String category) {
+	public String[] getLimitStatus(String prdName, String category) throws InterruptedException {
 		waitVisibilityLocate(editBy);
 		String productStatus = "";
 		String[] limitData = new String[2];
 		checkCategory(category);
 		for(int i=0; i < products.size() ; i ++) {
 			waitVisibilityLocate(editBy);
-			String name = products.get(i).getText();
+			String name = checkProductDisplay(i);
+			//String name = products.get(i).getText();
 			if(name.contains(prdName)) {
 				int j = i + 1;
 				WebElement MinMaxEle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]"));
@@ -166,7 +177,30 @@ public class AgentMinMaxPage extends TestBase{
 		return limitData;
 	}
 	
-	public List<List<String>> getALLProductList() {
+	public String checkProductDisplay(int i) throws InterruptedException {
+		boolean productShow = true;
+		String name = products.get(i).getText();
+		if(i>1) {
+			do {
+				boolean thisFieldStatus = false;
+				name = products.get(i).getText();
+				int j = i + 1;
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]"));
+				thisFieldStatus = elementDisplayCheck(ProductToggle);
+				if (name.length()==0 || thisFieldStatus == false) {
+					productShow = false;
+					OnclickHold(tableRightButton);
+					OnclickRelease(tableRightButton);
+				} else if(name.length()>=1 && thisFieldStatus == true) {
+					productShow = true;
+				}
+				
+			}while(productShow == false);
+		}
+		return name;
+	}
+	
+	public List<List<String>> getALLProductList() throws InterruptedException {
 
 		waitVisibilityLocate(editBy);
 		products = driver.findElements(By.cssSelector("th"));
@@ -191,6 +225,7 @@ public class AgentMinMaxPage extends TestBase{
 					thisFieldStatus = elementDisplayCheck(statusOrigin);
 					System.out.println("List field status : " + thisFieldStatus);
 					if (thisFieldStatus == true) {
+						buttonRelease();
 						WebElement MinMaxEle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+w+"]"));
 						String innitialLimit = readText(MinMaxEle);
 						int minEnd = innitialLimit.indexOf('N') + 1;
@@ -204,6 +239,8 @@ public class AgentMinMaxPage extends TestBase{
 						currentCat = selectItemFirstItem(filterCategory);
 						System.out.println("List Category : " + currentCat);
 						elementDataList.add(Arrays.asList(ProductName, currentCat, innitialLimit.substring(minEnd,midEnd), innitialLimit.substring(maxEnd)));
+					}else {
+						OnclickHold(tableRightButton);
 					}
 				}while(thisFieldStatus == false);
 				
@@ -218,6 +255,14 @@ public class AgentMinMaxPage extends TestBase{
 			
 		}while(liveCount <= catcount);
 		return elementDataList;	
+	}
+	
+	public void buttonRelease() throws InterruptedException {
+		boolean sideButtonStatus = false;
+		sideButtonStatus = checkElementExist(sideButtonXpath);
+		if(sideButtonStatus == true) {
+			OnclickRelease(tableRightButton);
+		}
 	}
 	
 }

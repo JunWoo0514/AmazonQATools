@@ -117,7 +117,7 @@ public class AgentMinMaxTest extends TestBase{
 	}
 	
 	@Test(priority=1)
-    public void SectionSetUpCAView(ITestContext context) {
+    public void SectionSetUpCAView(ITestContext context) throws InterruptedException {
 		AgentLevelSkip();
 		context.setAttribute("Steps", "1");
 		context.setAttribute("Process", "Get Downline Tier Active Product Data");
@@ -160,6 +160,7 @@ public class AgentMinMaxTest extends TestBase{
 		AgentLevelSkip();
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Downline Tier Check on Product : " + prdName + " with Status Value : " + active);		
+		agentMinMaxPage.findTestingAccount(paraCode, tier, category);
 		String[] limitData  = agentMinMaxPage.getLimitStatus(prdName, category);
 		String finalMin = limitData[0].replace(",", "");
 		String finalMax = limitData[1].replace(",", "");
