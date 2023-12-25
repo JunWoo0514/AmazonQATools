@@ -24,22 +24,22 @@ public class MinMaxBetLimitPage extends TestBase{
 	WebElement ResetBtn;
 	
 	//Edit Element to get all products
-	@FindBy(xpath="//div[@class='col-lg-4 col-md-4 col-sm-4 col-4 my-auto']/h6") 
+	@FindBy(xpath="//div[@class='//div[@class='col-lg-3 col-md-3 col-sm-3 col-3 my-auto product-container']/h6") 
 	List<WebElement> products;
 	
 	By updateBy = By.id("btnSubmit");
 	
 	By ModalUpdateBy = By.cssSelector("button[class='rightBtn btn']");
 
-	By confirmBy = By.cssSelector("button[class='btn btn-primary btn-ladda btn-sm modal-button']");
+	By confirmBy = By.cssSelector("button[class='btn btn-md modal-button']");
 	
-	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	@FindBy(css="button[class='btn btn-md modal-button']") 
 	WebElement ModalConfirmBtn;
 	
 	@FindBy(css="button[class='rightBtn btn']") 
 	WebElement ModalUpdateBtn;
 	
-	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	String ModalBtnCSS = "button[class='btn btn-md modal-button']";
 	
 	String ModalUptBtnCSS = "button[class='rightBtn btn']";
 	
@@ -70,7 +70,7 @@ public class MinMaxBetLimitPage extends TestBase{
 	}
 	
 	public void updateSingleLimitSetting(String prdName, String minAmt, String maxAmt) {
-		products = driver.findElements(By.xpath("//div[@class='col-lg-4 col-md-4 col-sm-4 col-4 my-auto']/h6"));
+		products = driver.findElements(By.xpath("//div[@class='col-lg-3 col-md-3 col-sm-3 col-3 my-auto product-container']/h6"));
 		System.out.println("Im in 01 : " + products.size());
 		for(int i=0; i < products.size() ; i ++) {
 			String name = products.get(i).getText();
@@ -92,7 +92,7 @@ public class MinMaxBetLimitPage extends TestBase{
 
 		waitVisibilityLocate(updateBy);
 
-		products = driver.findElements(By.xpath("//div[@class='col-lg-4 col-md-4 col-sm-4 col-4 my-auto']/h6"));
+		products = driver.findElements(By.xpath("//div[@class='col-lg-3 col-md-3 col-sm-3 col-3 my-auto product-container']/h6"));
 		for(int i=1; i < products.size() ; i ++) {
 			waitVisibilityLocate(updateBy);
 			int j = i;
@@ -114,7 +114,7 @@ public class MinMaxBetLimitPage extends TestBase{
 	
 	public String[] getLimitStatus(String prdName) {
 		waitVisibilityLocate(updateBy);
-		products = driver.findElements(By.xpath("//div[@class='col-lg-4 col-md-4 col-sm-4 col-4 my-auto']/h6"));
+		products = driver.findElements(By.xpath("//div[@class='col-lg-3 col-md-3 col-sm-3 col-3 my-auto product-container']/h6"));
 		String[] limitData = new String[2];
 		for(int i=0; i < products.size() ; i ++) {
 			waitVisibilityLocate(updateBy);
@@ -136,7 +136,7 @@ public class MinMaxBetLimitPage extends TestBase{
 	public List<List<String>> getALLProductList() {
 
 		waitVisibilityLocate(updateBy);
-		products = driver.findElements(By.xpath("//div[@class='col-lg-4 col-md-4 col-sm-4 col-4 my-auto']/h6"));
+		products = driver.findElements(By.xpath("//div[@class='col-lg-3 col-md-3 col-sm-3 col-3 my-auto product-container']/h6"));
 		System.out.println("List size set up : " + products.size());	
 		List<List<String>> elementDataList = new ArrayList<List<String>>();
 		

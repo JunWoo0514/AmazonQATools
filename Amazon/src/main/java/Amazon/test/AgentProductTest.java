@@ -100,10 +100,10 @@ public class AgentProductTest extends TestBase{
 	public void ProductSettingSingleUpdate_Parallel(String prdName, String innitialStatus, String category, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		String newStatus = "";
-		if(innitialStatus.equals(active)) {
-			newStatus = disable;
-		}else if(innitialStatus.equals(disable)) {
-			newStatus = active;
+		if(innitialStatus.equals("ON")) {
+			newStatus = "OFF";
+		}else if(innitialStatus.equals("OFF")) {
+			newStatus = "ON";
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Test with Product : " + prdName + " with Status Value : " + newStatus);
@@ -111,6 +111,8 @@ public class AgentProductTest extends TestBase{
 		agentProductPage.ProductSettingSingleTest(prdName,newStatus, category);
 		String result = agentProductPage.getProductStatus(prdName, category);
 		context.setAttribute("Result", "Result expected value : " + newStatus + " and received value : " + result);
+		System.out.println("Get : "+ result);
+		System.out.println("Give : "+ newStatus);
 		Assert.assertEquals(result,newStatus);
 	}
 	
@@ -150,10 +152,10 @@ public class AgentProductTest extends TestBase{
 	public void ProductSettingSingleUpdate_Reseller(String prdName, String innitialStatus, String category, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		String newStatus = "";
-		if(innitialStatus.equals(active)) {
-			newStatus = disable;
-		}else if(innitialStatus.equals(disable)) {
-			newStatus = active;
+		if(innitialStatus.equals("ON")) {
+			newStatus = "OFF";
+		}else if(innitialStatus.equals("OFF")) {
+			newStatus = "ON";
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Reseller Tier Test with Product : " + prdName + " with Status Value : " + newStatus);
@@ -198,10 +200,10 @@ public class AgentProductTest extends TestBase{
 	@Test(priority=10, dataProvider = "RealTimeProductData")
 	public void ProductSettingSingleUpdate_Operator(String prdName, String innitialStatus, String category, ITestContext context) throws InterruptedException {
 		String newStatus = "";
-		if(innitialStatus.equals(active)) {
-			newStatus = disable;
-		}else if(innitialStatus.equals(disable)) {
-			newStatus = active;
+		if(innitialStatus.equals("ON")) {
+			newStatus = "OFF";
+		}else if(innitialStatus.equals("OFF")) {
+			newStatus = "ON";
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Operator Tier Test with Product : " + prdName + " with Status Value : " + newStatus);

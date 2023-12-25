@@ -55,14 +55,14 @@ public class AgentMinMaxPage extends TestBase{
 	
 	By updateBy = By.id("minMaxUpdate");
 	
-	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	@FindBy(css="button[class='btn btn-md modal-button']") 
 	WebElement ModalConfirmBtn;
 	
 	String sideButtonXpath = "//button[@id='right-btn']";
 	
 	String sideButtonXpathL = "//button[@id='left-btn']";
 	
-	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	String ModalBtnCSS = "button[class='btn btn-md modal-button']";
 	
 	public AgentMinMaxPage() {
 		PageFactory.initElements(driver, this);

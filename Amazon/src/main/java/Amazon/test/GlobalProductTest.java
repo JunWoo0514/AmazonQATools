@@ -20,7 +20,7 @@ public class GlobalProductTest extends TestBase{
 	HomePage homePage;
 	GlobalProductPage globalProductPage;
 	AmazonUtil AmazonUtil;
-	String level, menu, item, active, disable, WalletType;
+	String level, menu, item, on, off, WalletType;
 	boolean CAtest;
 	List<List<String>> ProductDataList = new ArrayList<List<String>>();
 	
@@ -55,8 +55,8 @@ public class GlobalProductTest extends TestBase{
 		initialization();
 		menu = prop.getProperty("Setting");
 		item = prop.getProperty("GlobalProduct");
-		active = prop.getProperty("active");
-		disable = prop.getProperty("disable");
+		on = prop.getProperty("on");
+		off = prop.getProperty("off");
 		WalletType = System.getProperty("walletType")!=null ? System.getProperty("walletType") : prop.getProperty("walletType");
 		AmazonUtil = new AmazonUtil();
 		globalProductPage = new GlobalProductPage();
@@ -85,10 +85,10 @@ public class GlobalProductTest extends TestBase{
 	public void GlobalProductSettingSingleUpdate(String prdCode, String innitialStatus, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		String newStatus = "";
-		if(innitialStatus.equals(active)) {
-			newStatus = disable;
-		}else if(innitialStatus.equals(disable)) {
-			newStatus = active;
+		if(innitialStatus.equals(on)) {
+			newStatus = off;
+		}else if(innitialStatus.equals(off)) {
+			newStatus = on;
 		}
 		context.setAttribute("Steps", "2");
 		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Test with Product : " + prdCode + " with Status Value : " + newStatus);
@@ -110,9 +110,9 @@ public class GlobalProductTest extends TestBase{
 	public void GlobalProductSettingGroupCheck(String prdCode, String innitialStatus, ITestContext context) throws InterruptedException {
 		checkLevelSkip();
 		context.setAttribute("Steps", "2");
-		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Check on Product : " + prdCode + " with Status Value : " + active);		
+		context.setAttribute("Process", WalletType + "Wallet Test - Parallel Tier Check on Product : " + prdCode + " with Status Value : " + on);		
 		String result = globalProductPage.getProductStatus(prdCode);
-		context.setAttribute("Result", "Result expected value : " + active + " and received value : " + result);
-		Assert.assertEquals(result, active);
+		context.setAttribute("Result", "Result expected value : " + on + " and received value : " + result);
+		Assert.assertEquals(result, on);
 	}
 }

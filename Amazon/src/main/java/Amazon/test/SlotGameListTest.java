@@ -20,7 +20,7 @@ public class SlotGameListTest extends TestBase{
 	HomePage homePage;
 	SlotGameListPage slotGameListPage;
 	AmazonUtil AmazonUtil;
-	String level, menu, item, yes, no, WalletType, TestAccount, newStatus, paraCode, resellCode, operateCode, tier, initialCategory, currentCategory;
+	String level, menu, item, yes, no, on, off, WalletType, TestAccount, newStatus, paraCode, resellCode, operateCode, tier, initialCategory, currentCategory;
 	boolean CAtest;
 	List<List<String>> ProductDataList = new ArrayList<List<String>>();
 	
@@ -57,6 +57,8 @@ public class SlotGameListTest extends TestBase{
 		item = prop.getProperty("SlotGameList");
 		yes = prop.getProperty("yes");
 		no = prop.getProperty("no");
+		on = prop.getProperty("on");
+		off = prop.getProperty("off");
 		WalletType = System.getProperty("walletType")!=null ? System.getProperty("walletType") : prop.getProperty("walletType");
 		/*if(WalletType.equals(prop.getProperty("Seamless"))) {
 			TestAccount = prop.getProperty("SeamlessAccount");
@@ -99,6 +101,7 @@ public class SlotGameListTest extends TestBase{
 		slotGameListPage.findTestingProduct(prdName);
 		String[][] typeData  = slotGameListPage.getGameTypeStatus();
 		for(int i=0; i < typeData.length; i++) {
+			System.out.println("Data Type Length : " + typeData.length);
 			newStatus = "";
 			String typeTitle = typeData[i][0];
 			String innitialStatus = typeData[i][1];
@@ -137,7 +140,7 @@ public class SlotGameListTest extends TestBase{
 			}else {
 				newStatus = no;
 			}
-			
+			//slotGameListPage.GameTypeStatusTestSingle(typeTitle, newStatus);
 			//String resultTypeValue = slotGameListPage.getGameTypeStatusSingle(typeTitle);
 			System.out.println("Result Value Main : " + resultStatus);
 			Assert.assertEquals(resultStatus,newStatus);

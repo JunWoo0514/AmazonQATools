@@ -3,16 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Amazon.test.AgentProductTest">
+      <class name="Amazon.test.GlobalProductTest">
         <methods>
-          <include name="ProductSettingGroupUpdate_Parallel" invocation-numbers="0"/>
-          <include name="SectionSetUpParallel" invocation-numbers="0"/>
-          <include name="ProceedToReseller" invocation-numbers="0"/>
-          <include name="ProductSettingGroupUpdate_Reseller" invocation-numbers="0"/>
-          <include name="tearDown"/>
+          <include name="GlobalProductSettingGroupCheck" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- Amazon.test.AgentProductTest -->
+      </class> <!-- Amazon.test.GlobalProductTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

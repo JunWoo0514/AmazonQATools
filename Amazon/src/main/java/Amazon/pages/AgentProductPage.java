@@ -1,4 +1,4 @@
-package Amazon.pages;
+	package Amazon.pages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +40,8 @@ public class AgentProductPage extends TestBase{
 	@FindBy(id="btnSubmit") 
 	WebElement submitBtn;
 	
-	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	//@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	@FindBy(css="button[class='btn btn-md modal-button']") 
 	WebElement ModalConfirmBtn;
 	
 	@FindBy(css="th") 
@@ -56,7 +57,8 @@ public class AgentProductPage extends TestBase{
 	
 	String sideButtonXpathL = "//button[@id='left-btn']";
 	
-	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	//String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	String ModalBtnCSS = "button[class='btn btn-md modal-button']";
 	
 	
 	public AgentProductPage() {
@@ -94,17 +96,18 @@ public class AgentProductPage extends TestBase{
 		do {
 			for(int i=2; i < products.size() ; i ++) {
 				waitVisibilityLocate(submitBy);
-				boolean thisFieldStatus = false;
+				String thisFieldStatus = "";
 				int j = i;
 				if(CATest) {
 					j ++;
 				}
 					String name = checkProductDisplay(i);
 					System.out.println("Group Product: " + name);
-					WebElement productSelect = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
-					thisFieldStatus = elementDisplayCheck(productSelect);
-					if(thisFieldStatus == true) {
-						selectToggleTrue(productSelect);
+					//WebElement productSelect = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+					WebElement productSelect = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/label/div"));
+					thisFieldStatus = readText(productSelect);
+					if(thisFieldStatus.equals("OFF")) {
+						click(productSelect);
 					}
 			}
 			click(submitBtn);
@@ -201,8 +204,10 @@ public class AgentProductPage extends TestBase{
 				if(sideButtonStatus == true) {
 					OnclickRelease(tableRightButton);
 				}*/
-				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
-				selectToggle(ProductToggle, productStat);
+				//WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/label/div"));
+				//selectToggle(ProductToggle, productStat);
+				click(ProductToggle);
 				break;
 			}  
 		}
@@ -223,18 +228,23 @@ public class AgentProductPage extends TestBase{
 	public String checkProductDisplay(int i) throws InterruptedException {
 		boolean productShow = true;
 		String name = products.get(i).getText();
+		String productStatus = "";
 		if(i>1) {
 			do {
 				boolean thisFieldStatus = false;
 				name = products.get(i).getText();
 				int j = i + 1;
-				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				//WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/label/div"));
 				thisFieldStatus = elementDisplayCheck(ProductToggle);
-				if (name.length()==0 || thisFieldStatus == false) {
+				if (thisFieldStatus == true) {
+					productStatus = readText(ProductToggle);
+				}	
+				if (name.length()==0 || thisFieldStatus == false || productStatus.length()==0) {
 					productShow = false;
 					OnclickHold(tableRightButton);
 					OnclickRelease(tableRightButton);
-				} else if(name.length()>=1 && thisFieldStatus == true) {
+				} else if(name.length()>=1 && thisFieldStatus == true && productStatus.length()>=1) {
 					productShow = true;
 				}
 				
@@ -258,8 +268,11 @@ public class AgentProductPage extends TestBase{
 				
 			if(name.contains(prdName)) {
 				int j = i + 1;
-				WebElement productStatuInput = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
-				productStatus = readToggle(productStatuInput);
+				//WebElement productStatuInput = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/input"));
+				WebElement productStatuInput = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+j+"]/label/div"));
+				//productStatus = readToggle(productStatuInput);
+				waitVisibility(productStatuInput);
+				productStatus = readText(productStatuInput);
 				break;
 			}
 		}	
@@ -294,12 +307,19 @@ public class AgentProductPage extends TestBase{
 				do {
 					System.out.println("W value : " + w);
 					String ProductName = products.get(t).getText();
-					WebElement statusOrigin = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+w+"]/input"));
+					String productStatus = "";
+					//WebElement statusOrigin = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+w+"]/input"));
+					WebElement statusOrigin = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr/td["+w+"]/label/div"));
 					thisFieldStatus = elementDisplayCheck(statusOrigin);
-					System.out.println("List field status : " + thisFieldStatus);
+					//String a = readText(statusOrigin);
 					if (thisFieldStatus == true) {
+						productStatus = readText(statusOrigin);
+					}	
+					System.out.println("List field status : " + thisFieldStatus);
+					if (thisFieldStatus == true && productStatus.length()>=1) {
 						buttonRelease();
-						String innitialStatus = readToggle(statusOrigin);
+						//String innitialStatus = readToggle(statusOrigin);
+						String innitialStatus = readText(statusOrigin);
 						System.out.println("AG Code: " + products.get(1).getText());
 						System.out.println("List i value : " + t);
 						System.out.println("List Product : " + ProductName);

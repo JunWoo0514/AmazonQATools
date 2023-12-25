@@ -19,15 +19,15 @@ public class GlobalProductPage extends TestBase{
 	WebElement UpdateBtn;
 	
 	//Edit Element to get all products MT List
-	@FindBy(css="div[class='col-sm-6 col-md-4 col-lg-4 col-xl-4'] input") 
+	@FindBy(css="div[class='col-sm-3 col-md-3 col-lg-4 col-xl-4 prd_status'] label div") 
 	List<WebElement> productsList;
 	
 	By submitBy = By.id("btnSubmit");
 	
-	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	@FindBy(css="button[class='btn btn-md modal-button']") 
 	WebElement ModalConfirmBtn;
 	
-	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	String ModalBtnCSS = "button[class='btn btn-md modal-button']";
 	
 	//Initializing the Page Objects:
 	public GlobalProductPage() {
@@ -44,21 +44,25 @@ public class GlobalProductPage extends TestBase{
 	}
 	
 	public void updateSingleProductSetting(String prdCode, String prdStatus) {
-		boolean productStat = false;
-		if(prdStatus == prop.getProperty("active")) {
-			productStat = true;
-		}else if(prdStatus == prop.getProperty("disable")) {
-			productStat = false;
+		String productStat = "";
+		if(prdStatus == prop.getProperty("on")) {
+			productStat = prop.getProperty("off");
+		}else if(prdStatus == prop.getProperty("off")) {
+			productStat = prop.getProperty("on");
 		}
 		for(int i=0; i < productsList.size() ; i ++) {
 			int w = i+1;
 			boolean thisFieldStatus = false;
-			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/input"));
+			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/div"));
+			WebElement statusInout = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/input"));
 			thisFieldStatus = elementDisplayCheck(ProductToggle);
 			if(thisFieldStatus) {
-				String productID = ProductToggle.getAttribute("id");
+				String productID = statusInout.getAttribute("id");
 				if(productID.contains(prdCode)) {
-					selectToggle(ProductToggle, productStat);
+					String innitialStatus = readText(ProductToggle);
+					if(!innitialStatus.equals(productStat)) {
+						click(ProductToggle);
+					}
 					break;
 				}
 			}else {
@@ -74,10 +78,16 @@ public class GlobalProductPage extends TestBase{
 			int w = i+1;
 			waitVisibilityLocate(submitBy);
 			boolean thisFieldStatus = false;
-			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/input"));
+			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/div"));
+			//WebElement statusInput = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/input"));
 			thisFieldStatus = elementDisplayCheck(ProductToggle);
 			if(thisFieldStatus == true) {
-				selectToggleTrue(ProductToggle);
+				String innitialStatus = readText(ProductToggle);
+				if(innitialStatus.equals(prop.getProperty("off"))) {
+					click(ProductToggle);
+				}
+				//break;
+				//selectToggleTrue(ProductToggle);
 			}
 		}
 		click(UpdateBtn);
@@ -93,34 +103,35 @@ public class GlobalProductPage extends TestBase{
 			waitVisibilityLocate(submitBy);
 			int w = i+1;
 			boolean thisFieldStatus = false;
-			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/input"));
+			WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/div"));
+			WebElement statusInput = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/input"));
 			thisFieldStatus = elementDisplayCheck(ProductToggle);
 			if(thisFieldStatus) {
-				String productID = ProductToggle.getAttribute("id");
-				
+				String productID = statusInput.getAttribute("id");
 				if(productID.contains(prdCode)) {
-					productStatus = readToggle(ProductToggle);
+					productStatus = readText(ProductToggle);
 					break;
 				}
 			}
 		}	
 		return productStatus;
 	}
-	
+	//html/body/main/div[2]/div/div[2]/form/div[2]/div[1]/div[2]/div[1]/div/div[2]/label/div
 	public List<List<String>> getALLProductList() {
 		waitVisibilityLocate(submitBy);
-		productsList = driver.findElements(By.cssSelector("div[class='col-sm-6 col-md-4 col-lg-4 col-xl-4'] input"));		
+		productsList = driver.findElements(By.cssSelector("div[class='col-sm-3 col-md-3 col-lg-4 col-xl-4 prd_status'] label div"));		
 		List<List<String>> elementDataList = new ArrayList<List<String>>();
 		for (int i = 0; i < productsList.size(); i++) {
 			waitVisibilityLocate(submitBy);
 			boolean thisFieldStatus = false;
 			int w = i + 1;
-			WebElement statusOrigin = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/input"));
+			WebElement statusOrigin = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/div"));
+			WebElement statusInput = driver.findElement(By.xpath("//div[contains(@class,'card-body')]/div[1]/div[2]/div["+w+"]/div/div[2]/label/input"));
 			thisFieldStatus = elementDisplayCheck(statusOrigin);
 			System.out.println("List field status : " + thisFieldStatus);
 			if (thisFieldStatus == true) {
-				String productID = statusOrigin.getAttribute("id");
-				String innitialStatus = readToggle(statusOrigin);
+				String productID = statusInput.getAttribute("id");
+				String innitialStatus = readText(statusOrigin);
 				elementDataList.add(Arrays.asList(productID, innitialStatus));
 			}
 		}

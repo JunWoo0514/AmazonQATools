@@ -48,10 +48,10 @@ public class SlotGameListPage extends TestBase{
 	
 	By paginationBy = By.id("pageValues");
 	
-	@FindBy(css="button[class='btn btn-primary btn-ladda btn-sm modal-button']") 
+	@FindBy(css="button[class='btn btn-md modal-button']") 
 	WebElement ModalConfirmBtn;
 	
-	String ModalBtnCSS = "button[class='btn btn-primary btn-ladda btn-sm modal-button']";
+	String ModalBtnCSS = "button[class='btn btn-md modal-button']";
 	
 	//Initializing the Page Objects:
 	public SlotGameListPage() {
@@ -78,18 +78,23 @@ public class SlotGameListPage extends TestBase{
 	}
 	
 	public void updateSingleProduct(String title, String typeValue) {
-		boolean typeStat = false;
+		String typeStat = "";
 		if(typeValue == prop.getProperty("yes")) {
-			typeStat = true;
+			typeStat = prop.getProperty("on");
 		}else if(typeValue == prop.getProperty("no")) {
-			typeStat = false;
+			typeStat = prop.getProperty("off");
 		}
-		for(int i=3; i < titleList.size() ; i ++) {
+		
+		for(int i=4; i < titleList.size() ; i ++) {
 			int w = i+1;
 			String name = titleList.get(i).getText();
 			if(name.contains(title)) {	
-				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr[1]/td["+w+"]/input"));
-				selectToggle(ProductToggle, typeStat);
+				WebElement ProductToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr[1]/td["+w+"]/label/div"));
+				String slotStatus = readText(ProductToggle);
+				if(!slotStatus.equals(typeStat)) {
+					click(ProductToggle);
+				}
+				//selectToggle(ProductToggle, typeStat);
 				break;
 				}
 		}
@@ -99,14 +104,20 @@ public class SlotGameListPage extends TestBase{
 		//boolean typeStat = false;
 		waitVisibilityLocate(paginationBy);
 		click(EditBtn);	
-		for(int i=3; i < titleList.size() ; i ++) {
+		for(int i=4; i < titleList.size() ; i ++) {
 			int w = i+1;
 			String name = titleList.get(i).getText();
-			WebElement TypeToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr[1]/td["+w+"]/input"));
+			WebElement TypeToggle = driver.findElement(By.xpath("//div[contains(@class,'table-responsive')]/table/tbody/tr[1]/td["+w+"]/label/div"));
+			String slotStatus = readText(TypeToggle);
 			if(name.contains("Slot") || name.contains("Status")) {	
-				selectToggleTrue(TypeToggle);
+				if(!slotStatus.equals(prop.getProperty("on"))) {
+					click(TypeToggle);
+				}
+				//selectToggleTrue(TypeToggle);
 			}else {
-				selectToggleFalse(TypeToggle);
+				if(!slotStatus.equals(prop.getProperty("off"))) {
+					click(TypeToggle);
+				}
 			}
 		}
 		click(SaveBtn);	
@@ -116,9 +127,9 @@ public class SlotGameListPage extends TestBase{
 	
 	public String[][] getGameTypeStatus() {
 		waitVisibilityLocate(paginationBy);
-		String[][] typeData = new String[titleList.size()-3][2];
+		String[][] typeData = new String[titleList.size()-4][2];
 		int j = 0;
-		for(int i=3; i < titleList.size() ; i ++) {
+		for(int i=4; i < titleList.size() ; i ++) {
 			waitVisibilityLocate(paginationBy);
 			boolean thisFieldStatus = false;
 			int w = i + 1;
@@ -140,7 +151,7 @@ public class SlotGameListPage extends TestBase{
 	public String getGameTypeStatusSingle(String typeTitle) {
 		waitVisibilityLocate(paginationBy);
 		String typeData = "";
-		for(int i=3; i < titleList.size() ; i ++) {
+		for(int i=4; i < titleList.size() ; i ++) {
 			waitVisibilityLocate(paginationBy);
 			boolean thisFieldStatus = false;
 			int w = i + 1;
